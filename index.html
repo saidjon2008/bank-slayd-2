@@ -357,19 +357,17 @@
         margin-bottom: 10px;
       }
 
-      /* Koreyscha va inglizcha matn o'lchamlari */
+      /* Koreyscha 25px, inglizcha 10px */
       .it .kr {
         color: #fff;
         font-size: 25px;
-        line-height: 1.8;
-        margin-bottom: 9px;
-        font-weight: 500;
+        line-height: 1.6;
+        margin-bottom: 8px;
       }
       .it .en {
-        color: #ffffffd4;
-        font-size: 15px;
-        line-height: 1.7;
-        font-weight: 400;
+        color: #ffffffa8;
+        font-size: 10px;
+        line-height: 1.6;
       }
 
       .btn {
@@ -396,7 +394,6 @@
         flex: 1;
         min-width: 0;
         overflow: hidden;
-        transition: flex 1s cubic-bezier(0.77, 0, 0.18, 1);
         border-right: 1px solid #fff3;
         text-align: left;
         background: var(--bg);
@@ -517,6 +514,41 @@
       .hero .eyebrow:after {
         display: none;
       }
+
+      /* 6-slayd conclusion matnlari */
+      .closing-lines {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        width: min(900px, 100%);
+        margin: 20px auto 0;
+      }
+      .closing-line {
+        min-width: min(100%, 300px);
+        flex: 1;
+        padding: 14px 18px;
+        border: 1px solid #ffffff35;
+        border-radius: 12px;
+        background: #0008;
+        backdrop-filter: blur(10px);
+        text-align: left;
+      }
+      .closing-line strong {
+        display: block;
+        color: #fff;
+        font-size: 25px;
+        line-height: 1.5;
+        font-weight: 500;
+      }
+      .closing-line span {
+        display: block;
+        margin-top: 5px;
+        color: #ffffffc7;
+        font-size: 10px;
+        line-height: 1.6;
+      }
+
       .bar {
         position: fixed;
         z-index: 30;
@@ -637,9 +669,20 @@
           font-size: 10px;
           letter-spacing: 1px;
         }
+        .closing-lines {
+          gap: 8px;
+          margin-top: 12px;
+        }
+        .closing-line {
+          padding: 10px 13px;
+        }
+        .closing-line strong {
+          font-size: 25px;
+        }
+        .closing-line span {
+          font-size: 10px;
+        }
       }
-
-      /* Slaydlar uchun alohida o'tish effektlari */
       .slide[data-fx="a"] .rv,
       .slide[data-fx="b"] .rv,
       .slide[data-fx="c"] .rv,
@@ -714,8 +757,6 @@
       .slide[data-fx="d"] .it:before {
         transform-origin: right;
       }
-
-      /* Ikki rasmli slaydlar */
       .bgp {
         position: absolute;
         inset: -30px;
@@ -763,12 +804,10 @@
       }
       .two .it .kr {
         font-size: 25px;
-        line-height: 1.8;
-        margin-bottom: 4px;
+        margin-bottom: 3px;
       }
       .two .it .en {
-        font-size: 15px;
-        line-height: 1.7;
+        font-size: 10px;
       }
       .duo {
         flex: 1 1 52%;
@@ -881,7 +920,6 @@
       .slide[data-fx="d"]:not(.on) .duo img {
         transform: scale(1.7);
       }
-
       @media (max-width: 900px) {
         .body.two {
           flex-direction: column;
@@ -894,16 +932,6 @@
         }
         .txt {
           flex: none;
-        }
-        .it .kr,
-        .two .it .kr {
-          font-size: 22px;
-          line-height: 1.7;
-        }
-        .it .en,
-        .two .it .en {
-          font-size: 13.5px;
-          line-height: 1.65;
         }
       }
       @media (prefers-reduced-motion: reduce) {
@@ -946,6 +974,7 @@
         `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=2000&q=85`;
       const W = "https://commons.wikimedia.org/wiki/Special:FilePath/";
 
+      /* Rasmlarning asl manzillari saqlandi */
       const P = {
         nbu: W + "Toshkent_Building_of_NBU.jpg",
         asaka: W + "Tashkent_City_Central_Bank_Towers.jpg",
@@ -958,6 +987,25 @@
         hamkorIn: U("1497215728101-856f4ea42174"),
       };
 
+      /* 2–5-slaydlar uchun rasmlar */
+      const S = {
+        nbu: "https://nbu.uz/assets/articles/navoi1.jpg",
+        nbuIn:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQInQ-udYA5n68uHqDWA_D48YkmYNFc6PHMJwuPY-t3uA&s=10",
+        asaka:
+          "https://avatars.mds.yandex.net/get-altay/6065996/2a00000180cc36897443d07e403b1e895fd7/L_height",
+        asakaIn:
+          "https://depozit.uz/image_uploads/news/83/original/5ebd766d6b832a32af9c4aae6ee82f44_webp.webp",
+        kapital:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4rDgEETYZT3c9MQAMqR4JHnIB2J8XhcpGlJhrlR20sA&s=10",
+        kapitalIn:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNApRvcQ-HfDvjEz4q4R4szEg4BCjjywpv5BJYph2-IQ&s=10",
+        hamkor:
+          "https://dividends.nuz.uz/wp-content/uploads/2019/05/Hamkorbank.jpg",
+        hamkorIn:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyXq0zWcZXOMRaEMd-_4P_Hb-QAfdUvPWAcvL0hNNX6TPAWywc-yIEoZE&s=10",
+      };
+
       const TC = {
         nbu: "#d7e8ff",
         asaka: "#ff5b5b",
@@ -966,16 +1014,16 @@
         mix: "#ffffff",
       };
 
-      /* SLAYDLAR MATNI — foydalanuvchi bergan variant */
       const data = [
         {
           th: "mix",
           hero: 1,
-          eyebrow: "우즈베키스탄의 주요 은행 · MAIN BANKS IN UZBEKISTAN",
-          title: "Banks of Uzbekistan",
+          eyebrow: "UZBEKISTAN · BANKING",
+          title: "우즈베키스탄의 주요 은행",
+          lead: "Main Banks in Uzbekistan",
           pans: [
             ["nbu", P.nbu, "국립은행", "National Bank", 1],
-            ["asaka", P.asaka, "아사카은행", "Asakabank", 2],
+            ["asaka", S.asaka, "아사카은행", "Asakabank", 2],
             ["kapital", P.kapital, "카피탈은행", "Kapitalbank", 3],
             ["hamkor", P.hamkor, "함코르은행", "Hamkorbank", 4],
           ],
@@ -983,12 +1031,12 @@
         {
           th: "nbu",
           fx: "a",
-          img: P.nbu,
-          int: P.nbuIn,
+          img: S.nbu,
+          int: S.nbuIn,
           num: "01",
-          eyebrow: "국립은행 · NATIONAL BANK",
+          eyebrow: "국립은행 · NATIONAL BANK OF UZBEKISTAN",
           title: "National Bank",
-          lead: "설립 연도: 1991년 · Established in 1991",
+          lead: "설립 연도: 1991년 — Established in 1991",
           items: [
             [
               "#d7e8ff",
@@ -1007,12 +1055,12 @@
         {
           th: "asaka",
           fx: "b",
-          img: P.asaka,
-          int: P.asakaIn,
+          img: S.asaka,
+          int: S.asakaIn,
           num: "02",
           eyebrow: "아사카은행 · ASAKABANK",
           title: "Asakabank",
-          lead: "설립 연도: 1995년 · Established in 1995",
+          lead: "설립 연도: 1995년 — Established in 1995",
           items: [
             [
               "#ff5b5b",
@@ -1031,22 +1079,22 @@
         {
           th: "kapital",
           fx: "c",
-          img: P.kapital,
-          int: P.kapitalIn,
+          img: S.kapital,
+          int: S.kapitalIn,
           num: "03",
           eyebrow: "카피탈은행 · KAPITALBANK",
           title: "Kapitalbank",
-          lead: "설립 연도: 2001년 · Established in 2001",
+          lead: "설립 연도: 2001년 — Established in 2001",
           items: [
             [
               "#e8b86a",
-              "01 / HISTORY",
+              "01 / DEVELOPMENT",
               "2004년: 아비아은행과 합병",
               "Merged with Aviabank in 2004",
             ],
             [
               "#e8b86a",
-              "02 / TECHNOLOGY",
+              "02 / INNOVATION",
               "새로운 기술 사용",
               "Uses new technologies",
             ],
@@ -1055,28 +1103,28 @@
         {
           th: "hamkor",
           fx: "d",
-          img: P.hamkor,
-          int: P.hamkorIn,
+          img: S.hamkor,
+          int: S.hamkorIn,
           num: "04",
           eyebrow: "함코르은행 · HAMKORBANK",
           title: "Hamkorbank",
-          lead: "설립 연도: 1991년 · Established in 1991",
+          lead: "설립 연도: 1991년 — Established in 1991",
           items: [
             [
               "#8fe0a0",
-              "01 / ORIGINAL NAME",
+              "01 / EARLY HISTORY",
               "처음 이름: 안디잔은행",
               "Original name: Andijanbank",
             ],
             [
               "#8fe0a0",
-              "02 / NAME CHANGE",
+              "02 / NEW NAME",
               "2000년: 이름 변경",
               "Name changed in 2000",
             ],
             [
               "#8fe0a0",
-              "03 / MOBILE SERVICE",
+              "03 / DIGITAL SERVICE",
               "2018년: 모바일 앱으로 가상 비자 카드 발급",
               "Launched a virtual Visa card service through a mobile app in 2018",
             ],
@@ -1087,23 +1135,24 @@
           closing: 1,
           pans: [
             ["nbu", P.nbu, "국립은행", "National Bank", 1],
-            ["asaka", P.asaka, "아사카은행", "Asakabank", 2],
+            ["asaka", S.asaka, "아사카은행", "Asakabank", 2],
             ["kapital", P.kapital, "카피탈은행", "Kapitalbank", 3],
             ["hamkor", P.hamkor, "함코르은행", "Hamkorbank", 4],
           ],
-          eyebrow: "결론 · CONCLUSION",
-          title: "Conclusion",
+          eyebrow: "CONCLUSION",
+          title: "결론",
+          lead: "Conclusion",
           items: [
             [
               "#d7e8ff",
-              "01",
               "각 은행의 특별한 역사",
+              "",
               "Each bank has a unique history",
             ],
             [
               "#8fe0a0",
-              "02",
               "우리 생활에 중요한 역할",
+              "",
               "Plays an important role in our daily lives",
             ],
           ],
@@ -1150,25 +1199,40 @@
 
       function makeSlide(d) {
         if (d.pans) {
-          let closing = d.closing ? " closing" : "";
-          let lead = d.lead ? `<p class="lead">${words(d.lead)}</p>` : "";
-          let restart = d.closing
-            ? `<button class="btn rv" style="--s:0" id="restart">↺ BACK TO START</button>`
+          const closingLines = d.closing
+            ? `<div class="closing-lines">
+          ${d.items
+            .map(
+              (it) => `
+            <div class="closing-line">
+              <strong>${esc(it[1])}</strong>
+              <span>${esc(it[3])}</span>
+            </div>
+          `,
+            )
+            .join("")}
+        </div>`
             : "";
-          return `<section class="slide hero${closing}" data-th="mix">
-      <div class="tri">${d.pans
-        .map(
-          (p, k) =>
-            `<button class="pan" style="--p:${k}" data-th="${p[0]}" data-go="${p[4]}">
-          ${img(p[1])}
-          <span><b>${p[2]}</b><small>${p[3]}</small></span>
-        </button>`,
-        )
-        .join("")}</div>
+
+          return `<section class="slide hero${d.closing ? " closing" : ""}" data-th="mix">
+      <div class="tri">
+        ${d.pans
+          .map(
+            (p, k) => `
+          <button class="pan" style="--p:${k}" data-th="${p[0]}" data-go="${p[4]}">
+            ${img(p[1])}
+            <span><b>${p[2]}</b><small>${p[3]}</small></span>
+          </button>
+        `,
+          )
+          .join("")}
+      </div>
       <div class="body">
         <div class="eyebrow">${d.eyebrow}</div>
         <h1 class="title">${title(d.title)}</h1>
-        ${lead}${restart}
+        ${d.lead ? `<p class="lead">${words(d.lead)}</p>` : ""}
+        ${closingLines}
+        ${d.closing ? `<button class="btn rv" style="--s:0" id="restart">↺ BACK TO START</button>` : ""}
       </div>
     </section>`;
         }
@@ -1207,9 +1271,8 @@
 
       const stage = document.getElementById("stage");
       stage.innerHTML = data.map(makeSlide).join("");
-
-      const slides = [...stage.children],
-        total = slides.length;
+      const slides = [...stage.children];
+      const total = slides.length;
       const tabs = document.getElementById("tabs");
 
       tabs.innerHTML = [
@@ -1235,8 +1298,8 @@
         const first = cur < 0;
         busy = true;
         cur = i;
-        const th = data[i].th,
-          col = TC[th] || "#fff";
+        const th = data[i].th;
+        const col = TC[th] || "#fff";
 
         if (!first && curtain.animate) {
           curtain.style.setProperty("--cc", col);
@@ -1257,12 +1320,11 @@
         });
 
         setTimeout(() => slides[i].classList.add("on"), first ? 50 : 350);
+
         document.body.dataset.th = th;
         document.documentElement.style.setProperty("--sa", col);
-
         document.getElementById("bar").style.cssText +=
           `width:${((i + 1) / total) * 100}%;--pa:${col}`;
-
         document.getElementById("cnt").textContent =
           `${String(i + 1).padStart(2, "0")} / ${String(total).padStart(2, "0")}`;
 
@@ -1294,7 +1356,6 @@
       document.addEventListener("keydown", (e) => {
         if (e.target.closest("button") && ["Enter", " "].includes(e.key))
           return;
-
         if (["ArrowRight", "ArrowDown", "PageDown", " "].includes(e.key)) {
           e.preventDefault();
           next();
@@ -1353,9 +1414,8 @@
         (e) => {
           const dx = e.changedTouches[0].clientX - tx;
           const dy = e.changedTouches[0].clientY - ty;
-          if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy)) {
+          if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy))
             dx < 0 ? next() : prev();
-          }
         },
         { passive: true },
       );
@@ -1365,7 +1425,7 @@
         if (n >= 1 && n <= total) goTo(n - 1);
       });
 
-      /* Spotlight, parallax va 3D kartalar */
+      /* Spotlight + parallax + 3D card tilt */
       document.addEventListener("mousemove", (e) => {
         const s = document.getElementById("spot").style;
         s.setProperty("--mx", e.clientX + "px");
@@ -1398,9 +1458,9 @@
         });
       });
 
-      /* Suzuvchi yorug'lik zarralari */
-      const cv = document.getElementById("fx"),
-        cx = cv.getContext("2d");
+      /* Floating light particles */
+      const cv = document.getElementById("fx");
+      const cx = cv.getContext("2d");
       let ps = [];
 
       function rs() {
