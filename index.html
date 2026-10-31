@@ -549,6 +549,42 @@
         line-height: 1.6;
       }
 
+      /* Birinchi slayd: taqdimotchi ma'lumotlari */
+      .hero-meta {
+        position: absolute;
+        z-index: 8;
+        top: 110px;
+        right: 5%;
+        width: min(360px, 42vw);
+        padding: 14px 18px;
+        text-align: right;
+        background: rgba(40, 75, 145, 0.48);
+        border-right: 2px solid #fff;
+        backdrop-filter: blur(12px);
+        opacity: 0;
+        transform: translateY(18px);
+        transition:
+          opacity 0.8s 1s,
+          transform 0.8s 1s;
+      }
+      .slide.on .hero-meta {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .hero-meta .major {
+        font-size: clamp(12px, 1.4vw, 20px);
+        font-weight: 700;
+        letter-spacing: 1px;
+        line-height: 1.5;
+      }
+      .hero-meta .name {
+        margin-top: 8px;
+        font-size: clamp(11px, 1.2vw, 17px);
+        letter-spacing: 1px;
+        line-height: 1.5;
+        color: #ffffffd9;
+      }
+
       .bar {
         position: fixed;
         z-index: 30;
@@ -681,6 +717,12 @@
         }
         .closing-line span {
           font-size: 10px;
+        }
+        .hero-meta {
+          top: 88px;
+          right: 6%;
+          width: min(300px, 72vw);
+          padding: 10px 13px;
         }
       }
       .slide[data-fx="a"] .rv,
@@ -1227,6 +1269,16 @@
           )
           .join("")}
       </div>
+      ${
+        d.hero
+          ? `
+      <div class="hero-meta">
+        <div class="major">한국어 통번역 전공 2학년</div>
+        <div class="name">욱타모바 자스미나입니다</div>
+      </div>
+      `
+          : ""
+      }
       <div class="body">
         <div class="eyebrow">${d.eyebrow}</div>
         <h1 class="title">${title(d.title)}</h1>
@@ -1510,6 +1562,7 @@
         document.getElementById("loader").classList.add("hide");
         const n = parseInt(location.hash.slice(1), 10);
         goTo(n >= 1 && n <= total ? n - 1 : 0);
+        0000000;
       }, 1500);
     </script>
   </body>
